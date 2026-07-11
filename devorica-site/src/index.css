@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   FONT IMPORTS
+   ========================================================= */
+
+/* Google Fonts , Inter (body) + Hind Siliguri (Bengali body) */
+
+/* Bengali font: Hind Siliguri (loaded via Google Fonts above) , used for all Bangla text */
+
+/* Gotham Ultra — footer DEVORICA wordmark only
+   Place GothamUltra.woff2 / .woff / .ttf in /public/fonts/
+   Falls back to Impact → Arial Black if file not present */
+@font-face {
+  font-family: 'Gotham Ultra';
+  src: url('/fonts/Gotham-Ultra.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* PLACEHOLDER: insert real NOTHING font files - place .woff2/.woff in /public/fonts/ then uncomment below */
+@font-face {
+  font-family: 'NOTHING';
+  src: url('/fonts/NOTHING.woff2') format('woff2'),
+    url('/fonts/NOTHING.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   CSS CUSTOM PROPERTIES
+   ========================================================= */
+:root {
+  --color-branding-orange: #E85002;
+  --color-primary-black: #000000;
+  --color-white: #F9F9F9;
+  --color-gray: #646464;
+  --color-dark-gray: #333333;
+  --color-light-gray: #A7A7A7;
+
+  --gradient-branding: linear-gradient(90deg, #000000 0%, #C10801 35%, #F16001 70%, #D9C3AB 100%);
+  --gradient-radial: radial-gradient(ellipse at 60% 40%, #C10801 0%, #F16001 40%, #000000 80%);
+
+  --font-heading: 'NOTHING', 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', 'General Sans', sans-serif;
+  --font-bengali: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+}
+
+/* =========================================================
+   BASE RESETS & GLOBAL STYLES
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+  /* Sharp corners throughout */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-primary-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: none;
+  /* Custom cursor active on desktop */
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+
+  /* Default cursor on touch devices */
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Bengali locale , heading: SolaimanLipi, body: Hind Siliguri */
+/* All Bengali text , Hind Siliguri */
+.lang-bn h1,
+.lang-bn h2,
+.lang-bn h3,
+.lang-bn h4,
+.lang-bn h5,
+.lang-bn h6,
+.lang-bn .font-heading,
+.lang-bn p,
+.lang-bn span,
+.lang-bn li,
+.lang-bn a,
+.lang-bn label,
+.lang-bn button,
+.lang-bn input,
+.lang-bn textarea,
+.lang-bn select {
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+  letter-spacing: 0;
+}
+
+/* Section eyebrow label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-light-gray);
+}
+
+/* Orange accent word in headlines */
+.accent-word {
+  color: var(--color-branding-orange);
+  font-style: italic;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-branding-orange);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-radius: 0 !important;
+  text-decoration: none;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.btn-primary:hover {
+  background-color: #c44000;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--color-light-gray);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border-radius: 0 !important;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-white);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card-dark {
+  background-color: var(--color-dark-gray);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: var(--color-branding-orange);
+  box-shadow: 0 0 20px rgba(232, 80, 2, 0.2);
+  transform: translateY(-4px);
+}
+
+.card-light {
+  background-color: #ffffff;
+  border: 1px solid var(--color-light-gray);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-light:hover {
+  border-color: var(--color-branding-orange);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marqueeReverse 25s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* =========================================================
+   CUSTOM CURSOR
+   ========================================================= */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-branding-orange);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-branding-orange);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor-dot.hovered {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+
+.cursor-ring.hovered {
+  width: 52px;
+  height: 52px;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   SECTION UTILITIES
+   ========================================================= */
+.section-dark {
+  background-color: var(--color-primary-black);
+}
+
+.section-light {
+  background-color: var(--color-white);
+  color: #111;
+}
+
+.section-dark .eyebrow {
+  color: var(--color-light-gray);
+}
+
+.section-light .eyebrow {
+  color: var(--color-gray);
+}
+
+/* =========================================================
+   SCROLLBAR STYLING
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-branding-orange);
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+::selection {
+  background-color: var(--color-branding-orange);
+  color: #fff;
+}
+
+/* =========================================================
+   FOCUS STATES (accessibility)
+   ========================================================= */
+:focus-visible {
+  outline: 2px solid var(--color-branding-orange);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   GLASS CARD (hero stat badges)
+   ========================================================= */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   ACCORDION
+   ========================================================= */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* =========================================================
+   KEYFRAMES (referenced by Tailwind config too)
+   ========================================================= */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 80, 2, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px 4px rgba(232, 80, 2, 0.35);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin3d {
+  0% {
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION OVERRIDES
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none !important;
+  }
+}

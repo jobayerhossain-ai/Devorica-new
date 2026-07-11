@@ -1,0 +1,329 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "caseStudies": "Case Studies",
+    "contact": "Contact",
+    "letsTalk": "Let's Talk"
+  },
+  "hero": {
+    "tagline": "Hub support for clients from all over the world.",
+    "headline1": "Agency-Grade Design.",
+    "headline1Accent": "Accessible Pricing.",
+    "headline2": "Technology",
+    "headline2Accent": "Crafted for People,",
+    "headline2End": "Not Machines.",
+    "subtext": "We help Bangladeshi e-commerce and retail brands launch fast, modern, conversion-focused websites and brands - premium-quality work without the premium price tag.",
+    "cta": "Book a Consultation",
+    "ctaSecondary": "View Our Work",
+    "statBadge1Label": "Projects Delivered",
+    "statBadge2Label": "Client Satisfaction",
+    "partnersLabel": "Our Partners & Clients"
+  },
+  "meetMinds": {
+    "eyebrow": "Why Choose Us",
+    "heading": "Meet the Minds Behind the Work.",
+    "body": "At Devorica, we bring together developers, designers, and strategists across Laravel, Python, Node.js, React, TypeScript, Java, and Flutter to craft bold, fast, reliable digital products. We're a small team with big ambition - and every project gets our full focus.",
+    "trustedPartners": "Trusted Partners",
+    "bookCall": "Book a Call",
+    "factCard": "Fact",
+    "factsNext": "Next Fact"
+  },
+  "hiddenCost": {
+    "eyebrow": "The Problem",
+    "heading": "The Hidden Cost of a",
+    "headingAccent": "Weak Website.",
+    "body": "Businesses lose customers every day to slow, outdated, or poorly designed digital experiences. For e-commerce and retail brands competing on conversion, every week without a strong online presence compounds into real, measurable lost revenue. Your website is your most powerful sales tool - or your most expensive liability."
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "heading": "Built for the Problems That",
+    "headingAccent": "Matter Most.",
+    "exploreAll": "Explore All Services",
+    "talkExpert": "Talk to an Expert",
+    "card1": {
+      "title": "Web Development",
+      "subtitle": "Fast, Scalable, Reliable.",
+      "desc": "Custom websites & web apps built with the right stack for the job - Laravel, Node.js, React, or beyond. We pick the right tool for your project, not a one-size-fits-all template.",
+      "readMore": "Read More"
+    },
+    "card2": {
+      "title": "UI/UX Design",
+      "subtitle": "Design That Converts.",
+      "desc": "Interfaces that are both beautiful and intuitive - crafted with user psychology, conversion principles, and brand coherence in mind from the very first pixel.",
+      "readMore": "Read More"
+    },
+    "card3": {
+      "title": "Branding & Identity",
+      "subtitle": "Brands People Remember.",
+      "desc": "Logo, visual identity systems, typography, color, and brand guidelines - everything you need to show up consistently and confidently across every touchpoint.",
+      "readMore": "Read More"
+    },
+    "card4": {
+      "title": "Digital Strategy & Growth",
+      "subtitle": "Less Guesswork. More Growth.",
+      "desc": "SEO, conversion rate optimization, and performance strategy grounded in data - so your digital presence doesn't just exist, it produces measurable results.",
+      "readMore": "Read More"
+    }
+  },
+  "impact": {
+    "eyebrow": "Social Proof",
+    "heading": "We Make",
+    "headingAccent": "Immediate Impact.",
+    "testimonial1": {
+      "name": "CodeVibe",
+      "source": "Facebook Review",
+      "quote": "They provide good services, but responses are a little bit slow. Other than that, the working experience is very good and much better than many other Bangladeshi agencies."
+    },
+    "testimonial2": {
+      "name": "Ratul Mart",
+      "source": "Facebook Review",
+      "quote": "Devorica built exactly the website I was looking for. The design is clean, professional, and their attention to detail is spot on. Replies were sometimes a bit slow, but they always got back to me and resolved every issue. Very satisfied with the final product and would definitely work with them again."
+    },
+    "testimonial3": {
+      "name": "Digital Dynamo",
+      "source": "Facebook Review",
+      "quote": "Devorica delivered an exceptional website - premium feel, smooth on mobile, and they were genuinely attentive throughout the process. They welcomed every revision with patience and continued to support us even after launch. A truly professional agency that punches well above its weight."
+    }
+  },
+  "barriers": {
+    "eyebrow": "Why Act Now",
+    "heading": "Identify the Barriers",
+    "headingAccent": "Holding Your Business Back.",
+    "stat1Label": "Projects Delivered",
+    "stat2Label": "Client Satisfaction Rate",
+    "stat3Label": "Industries Served",
+    "body": "Slow load times, dated design, and unclear messaging are silently costing you customers. Devorica exists to tear down those barriers - fast."
+  },
+  "process": {
+    "eyebrow": "How We Work",
+    "heading": "A Streamlined Process for",
+    "headingAccent": "Lasting Results.",
+    "step1Title": "Discover & Define",
+    "step1Desc": "We start by deeply understanding your business, goals, and audience. No templates, no assumptions - just a tailored project brief built around what you actually need.",
+    "step2Title": "Design & Develop",
+    "step2Desc": "Our team designs pixel-perfect interfaces and builds them with clean, maintainable code using whatever stack your project demands - all with transparent progress updates.",
+    "step3Title": "Launch & Grow",
+    "step3Desc": "We handle the launch - testing, optimization, and deployment - then stay available for ongoing support, growth strategy, and iterative improvements.",
+    "badge1": "End-to-End Encryption",
+    "badge2": "Transparent Pricing",
+    "badge3": "Dedicated Support"
+  },
+  "caseStudies": {
+    "eyebrow": "Client Success Stories",
+    "heading": "Real Results for",
+    "headingAccent": "Real Businesses.",
+    "exploreAll": "Explore All",
+    "eyebrowTag": "CASE STUDY",
+    "readMore": "Visit Live Site →",
+    "project1": {
+      "name": "bikkhipto.com",
+      "desc": "A custom e-commerce platform built for performance and ease of use, tailored for the Bangladeshi retail market."
+    },
+    "project2": {
+      "name": "easysubbd.com",
+      "desc": "A subscription-based service web platform with seamless UX and a conversion-focused design flow."
+    },
+    "project3": {
+      "name": "bayloz.com",
+      "desc": "A modern digital commerce experience with custom branding, responsive design, and smooth mobile navigation."
+    }
+  },
+  "finalCta": {
+    "eyebrow": "Ready to Start?",
+    "heading": "Take the Next Step Toward",
+    "headingAccent": "Success.",
+    "subtext": "Let's build something remarkable together - on time, on budget, and built to last.",
+    "cta": "Book a Consultation",
+    "ctaSecondary": "View Pricing"
+  },
+  "footer": {
+    "emailLabel": "Email Us",
+    "whatsappLabel": "WhatsApp Us",
+    "newsletterLabel": "Get occasional updates from Devorica",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterBtn": "Subscribe",
+    "pages": "Pages",
+    "solutions": "Solutions",
+    "company": "Company",
+    "social": "Social",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact",
+      "webDev": "Web Development",
+      "uiux": "UI/UX Design",
+      "branding": "Branding",
+      "strategy": "Digital Strategy",
+      "aboutUs": "About Us",
+      "caseStudies": "Case Studies",
+      "pricing": "Pricing",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "behance": "Behance"
+    },
+    "copyright": "© 2026 Devorica. Designed & Developed by Devorica.",
+    "since": "Since 2022."
+  },
+  "servicesPage": {
+    "heroHeading": "Our",
+    "heroHeadingAccent": "Services.",
+    "heroSubtext": "From Laravel and Node.js backends to React and Flutter front-ends, we build with whatever stack the project actually needs - not a one-size-fits-all template.",
+    "pricingEyebrow": "Transparent Pricing",
+    "pricingHeading": "Simple, Honest",
+    "pricingHeadingAccent": "Pricing.",
+    "pricingSubtext": "No hidden fees. No surprise invoices. Just clear tiers built around what your business actually needs.",
+    "toggleBDT": "BDT (৳)",
+    "toggleUSD": "USD ($)",
+    "popular": "Most Popular",
+    "getStarted": "Get Started",
+    "contactSales": "Contact Sales",
+    "customQuote": "Custom Quote",
+    "payment": "Accepted payment: bKash · Nagad · Bank Transfer · PayPal / Stripe",
+    "starter": {
+      "name": "Starter",
+      "tagline": "The perfect launchpad for small businesses.",
+      "features": [
+        "1–5 page responsive website",
+        "Mobile-first design",
+        "Basic SEO setup",
+        "2 rounds of revisions",
+        "Contact form integration",
+        "1-week post-launch support"
+      ]
+    },
+    "growth": {
+      "name": "Growth",
+      "tagline": "Everything you need for a complete digital presence.",
+      "features": [
+        "Up to 10 pages or small web app",
+        "Custom UI/UX design",
+        "Brand identity starter kit",
+        "CMS integration",
+        "Advanced SEO setup",
+        "1 month post-launch support",
+        "Performance optimization"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "tagline": "Full-scale solutions for ambitious brands.",
+      "features": [
+        "Full web application",
+        "Complete brand system",
+        "Ongoing strategy & optimization",
+        "Dedicated project manager",
+        "SLA-backed support",
+        "Custom integrations",
+        "Priority response"
+      ]
+    }
+  },
+  "aboutPage": {
+    "heroHeading": "About",
+    "heroHeadingAccent": "Devorica.",
+    "heroSubtext": "A Bangladeshi design and development agency founded in 2022, based in Noakhali - building premium digital products for the brands that deserve them.",
+    "storyHeading": "Our Story",
+    "storyBody": "Devorica was founded in 2022 with a clear mission: to prove that premium-quality digital work doesn't require a premium-sized budget. Based in Manikpur, Senbag, Noakhali, Bangladesh, we serve local e-commerce and retail brands as well as international clients who need genuine craft - not off-the-shelf templates.",
+    "missionHeading": "Our Mission",
+    "missionBody": "Agency-grade design, without agency-grade price tags. We believe every business - from a Bangladeshi SME to a growing international brand - deserves a digital presence that works hard, looks exceptional, and builds real trust with customers.",
+    "valuesEyebrow": "Our Values",
+    "valuesHeading": "What We Stand For.",
+    "value1Title": "Client-First Communication",
+    "value1Desc": "We keep you in the loop at every stage. No jargon, no radio silence - just clear, honest updates from brief to launch.",
+    "value2Title": "Honest, Transparent Pricing",
+    "value2Desc": "Our tiers are clearly defined and our quotes are fixed. You'll never receive a surprise invoice.",
+    "value3Title": "Speed & Reliability",
+    "value3Desc": "We meet deadlines. When something comes up, we communicate early - never after the fact.",
+    "value4Title": "Bold, Modern Design",
+    "value4Desc": "We refuse to ship mediocre work. Every pixel is considered, every interaction is intentional.",
+    "teamEyebrow": "The Team",
+    "teamHeading": "Small Team,",
+    "teamHeadingAccent": "Big Results.",
+    "teamSubtext": "We're a focused team of developers, designers, and strategists - small enough to give your project real attention, experienced enough to deliver results that matter.",
+    "statsEyebrow": "By the Numbers"
+  },
+  "contactPage": {
+    "heroHeading": "Let's Build Something",
+    "heroHeadingAccent": "Great Together.",
+    "heroSubtext": "Whether you're starting from scratch or need to take your existing presence to the next level - we're ready to talk.",
+    "formName": "Your Name",
+    "formEmail": "Your Email",
+    "formPhone": "Phone Number",
+    "formProjectType": "Project Type",
+    "formBudget": "Budget Range (BDT)",
+    "formMessage": "Tell us about your project",
+    "formSubmit": "Send Message",
+    "formSuccess": "Thanks - we'll be in touch within 24 hours.",
+    "formError": "Something went wrong. Please try reaching us via WhatsApp or email.",
+    "projectTypes": {
+      "webDev": "Web Development",
+      "uiux": "UI/UX Design",
+      "branding": "Branding",
+      "strategy": "Digital Strategy",
+      "other": "Other"
+    },
+    "budgetRanges": {
+      "under15k": "Under ৳15,000",
+      "15k50k": "৳15,000 – ৳50,000",
+      "50k150k": "৳50,000 – ৳150,000",
+      "above150k": "৳150,000+"
+    },
+    "infoEmail": "Email",
+    "infoPhone": "Phone / WhatsApp",
+    "infoAddress": "Address",
+    "infoHours": "Availability",
+    "hoursValue": "Available 24/7",
+    "whatsappBtn": "Chat on WhatsApp",
+    "faqEyebrow": "FAQ",
+    "faqHeading": "Common Questions",
+    "faqHeadingAccent": "Answered.",
+    "faq1Q": "How long does a typical project take?",
+    "faq1A": "Most websites are delivered within 2–6 weeks depending on scope. We'll give you a clear timeline in our initial proposal - and we stick to it.",
+    "faq2Q": "Do you offer support after launch?",
+    "faq2A": "Yes. All tiers include at least 1 week of post-launch support, and our Growth and Enterprise tiers include extended support periods. We also offer ongoing retainer arrangements.",
+    "faq3Q": "What's included in your pricing tiers?",
+    "faq3A": "Every tier is fully documented on our Services page with a clear deliverables list. There are no hidden add-ons - what you see is what you get.",
+    "faq4Q": "Can you work with an existing brand/design, or only build from scratch?",
+    "faq4A": "Both. We're happy to build on an existing brand identity or start completely fresh - we'll adapt our process to where you are today.",
+    "faq5Q": "Do you take on e-commerce projects specifically?",
+    "faq5A": "Absolutely - e-commerce and retail brands are our primary focus. We have deep experience with conversion-focused e-commerce design and custom platform builds."
+  },
+  "privacyPage": {
+    "heading": "Privacy Policy",
+    "lastUpdated": "Last Updated: July 2026"
+  },
+  "termsPage": {
+    "heading": "Terms of Service",
+    "lastUpdated": "Last Updated: July 2026"
+  },
+  "notFound": {
+    "heading": "404",
+    "subtext": "This page wandered off - let's get you back on track.",
+    "cta": "Back to Home"
+  },
+  "cookie": {
+    "text": "We use cookies for analytics (Google Analytics, Facebook Pixel) and live chat (Tawk.to) to improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn More"
+  },
+  "exitIntent": {
+    "heading": "Wait - get a free consultation.",
+    "subtext": "Share your email and we'll reach out within 24 hours to discuss your project - no commitment required.",
+    "placeholder": "your@email.com",
+    "cta": "Book Free Consultation",
+    "close": "No thanks"
+  },
+  "numberedServices": {
+    "01": "Web Development",
+    "02": "UI/UX Design",
+    "03": "Branding",
+    "04": "Digital Strategy"
+  }
+}

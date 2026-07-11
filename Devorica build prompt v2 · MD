@@ -1,0 +1,365 @@
+# Devorica Website - Build Prompt v2 (Upgraded) for Antigravity (Claude Sonnet 5.6)
+
+Copy everything below into Antigravity as your build prompt. This version incorporates confirmed business decisions, real tech-stack details, currency/legal logic, and hosting specifics gathered during the requirements pass. Items still pending real client assets are called out explicitly in **PENDING FROM CLIENT** below - everything else in this doc is a firm decision, not an open question.
+
+---
+
+## ⚠️ PENDING FROM CLIENT (insert when supplied, keep placeholders until then)
+
+These are confirmed to exist but not yet supplied in this conversation. Wherever the build touches these, use a clearly marked, easy-to-find placeholder (`{/* PLACEHOLDER: awaiting client asset - [name] */}`) so they can be dropped in without re-touching layout/logic:
+
+1. **Logo files** - black wordmark-on-white, white wordmark-on-black, standalone "D" icon mark (client confirmed these exist and will be uploaded).
+2. **Real stats** - projects delivered, years active, client satisfaction %, industries served (client confirmed real numbers exist).
+3. **Real pricing** - Starter / Growth / Enterprise tier prices in BDT (client confirmed real tiers exist).
+4. **Additional testimonials** - beyond the 3 already given (CodeVibe, Ratul Mart, Digital Dynamo) - client confirmed more exist; build the testimonial section to gracefully support 4–8 cards, not a hardcoded 3.
+5. **Real social media URLs** - Facebook, LinkedIn, Instagram, Behance/Dribbble (client confirmed these exist; use `#` until supplied).
+6. **Tawk.to property/widget ID** - account not yet created; embed script with a placeholder ID and a code comment noting where to swap it in.
+7. **Case study narrative detail** - client wants to keep these general/vague for now (see Case Studies section below) - this is an intentional final decision, not pending.
+
+Everything else below is a confirmed decision to build against directly.
+
+---
+
+## PROJECT OVERVIEW
+
+Build a modern, premium single-page-feel marketing website for **Devorica**, a Bangladeshi web development, design, and branding agency founded in **2022**, based in Manikpur, Senbag, Noakhali, Bangladesh. The visual language must closely follow a reference design (dark hero, bold red/orange accent, card-based sections, generous whitespace, editorial typography) - but all copy, icons, and section content must be rewritten for a dev/design/branding agency instead of an AI consultancy.
+
+### Business positioning (confirmed)
+- **Primary audience:** mostly local Bangladeshi SMEs (not international-first). Copy, pricing, and payment methods should speak to this audience first, while still being credible to occasional international clients.
+- **Industry focus:** e-commerce / retail brands, specifically - lean into this in service descriptions, case study framing, and example use-cases (without excluding other verticals).
+- **Core differentiator:** design quality & premium feel - Devorica should read as more polished and considered than typical local competitors, not primarily "cheapest" or "fastest."
+- **Positioning statement to build copy around:** premium-quality work at an accessible price - this "best of both" framing should appear explicitly somewhere in the hero subtext or About page (e.g., "Agency-grade design, without agency-grade price tags").
+- **Conversion priority:** no single dominant CTA - form submissions, WhatsApp, and phone/call should all get equal visual weight across the site rather than one being pushed harder than the others.
+
+### Confirmed technical stack for copy purposes
+Devorica's actual delivery capability spans a broad stack - reflect this explicitly in Web Development service copy rather than staying fully tech-agnostic:
+**Laravel, Python, Node.js, React, TypeScript, Java, Flutter.**
+Frame this as full-spectrum capability (web, mobile, backend/API, custom software) rather than a single-CMS shop. Suggested phrasing direction: "From Laravel and Node.js backends to React and Flutter front-ends, we build with whatever stack the project actually needs - not a one-size-fits-all template."
+
+**Key product requirements (confirmed):**
+- **Bilingual:** English + Bangla, with a language toggle in the navbar (see "Internationalization" below). No blog for this build. **Both `en.json` and `bn.json` must be fully written out in this first build** - Bangla is not a "structure now, content later" placeholder pass; write real, natural Bangla copy for every string alongside English from the start.
+- **Theme:** Dark theme only - no light-mode toggle. Every section is built to work on black (`--color-primary-black`) or the off-white (`#F9F9F9`) card/section backgrounds described below; there is no separate "light site mode."
+- **Corners:** Sharp/square corners throughout (buttons, cards, inputs, badges) - no rounded pill shapes - to match the angular, geometric Devorica logo mark.
+- **Imagery:** Dominated by **custom Three.js/Spline-style 3D scenes** (geometric shapes, gradient blobs, isometric device mockups, glowing diamond/cube motifs) rather than real photography or flat static SVGs. This is a confirmed choice, not a fallback - build real interactive/animated Three.js scenes for the hero and key sections, accepting the added bundle-size/render cost since the site targets a "premium/high-end" feel over minimal load time. Lazy-load below-the-fold scenes and keep an eye on mobile performance regardless (see Performance section). Real team/office photos are NOT used anywhere in this build - the team grid stays 100% abstract geometric avatars (client confirmed no real headshots yet).
+- **Motion:** Rich - parallax scroll effects, custom cursor interactions, animated number counters, and multiple auto-scrolling marquees throughout (see "Interactions / Polish"). Client confirmed: keep the full motion brief as specced, do not scale it back for performance/practicality - respect `prefers-reduced-motion` as the accessibility safety valve instead of trimming the default experience.
+- **Animation library:** Framer Motion (primary), used for scroll-triggered reveals, parallax layers, counters, and page-transition polish; Three.js (via `@react-three/fiber` recommended) for the 3D hero/section graphics.
+- **Services page:** Public pricing with 3 tiers (Starter / Growth / Enterprise). **BDT is the primary displayed currency** (local-market pricing), with **USD shown as a secondary converted figure** - this is the reverse of a USD-default site. Conversion is still done via a **live exchange-rate API** (see "Pricing & Currency" below) with a hardcoded fallback rate.
+- **Contact page:** A real contact form (submits via **PHP mail script using SMTP-configured `mail()`**, since hosting is cPanel and SMTP is already set up - see "Hosting & Backend" below) plus a **free live chat widget (Tawk.to)** and a **WhatsApp click-to-chat button**. Budget-range dropdown uses **BDT-denominated ranges**, not USD (see "Contact Page" below).
+
+### Hosting & Backend (cPanel - confirmed live now)
+- The cPanel hosting account and domain access are **already active** - this build should produce a genuinely deployable static SPA (Vite + React), not just a theoretical package. Use `devorica.com` as the working placeholder domain throughout (sitemap, canonical tags, OG tags, robots.txt) since the final registered domain isn't confirmed yet - this is a simple find/replace later.
+- Build with **Vite (React, static SPA output)** rather than a Next.js app requiring a Node server, so the final `dist/` build can simply be uploaded to `public_html` via cPanel File Manager/FTP. Include an `.htaccess` file configured for SPA client-side routing (rewrite all non-file requests to `index.html`) since cPanel Apache needs this for React Router to work on refresh/deep links.
+- The contact form posts to a small **`contact.php`** script (placed alongside the built static files) that sends mail via **PHP's native `mail()` function using the SMTP relay already configured on the hosting account** (confirmed available) to `support@devorica.com`. Include a **honeypot hidden field** for basic spam protection (no visible CAPTCHA), plus basic server-side validation (required fields, email format) before sending.
+- Generate a `sitemap.xml` and `robots.txt` for basic technical SEO, plus standard `<meta>` Open Graph tags per page (using `devorica.com` placeholder URLs).
+
+**Stack:** React + Vite + Tailwind CSS (static SPA build for cPanel hosting), functional components, responsive, mobile-first breakpoints, Framer Motion for animation, Three.js/`@react-three/fiber` for 3D graphics, `react-i18next` for bilingual support, React Router for client-side routing.
+
+**Pages:**
+1. Home
+2. Services (incl. pricing)
+3. About
+4. Contact (incl. form + live chat + WhatsApp + map)
+5. Privacy Policy
+6. Terms of Service
+7. 404 (custom branded error page)
+
+Shared components: Navbar (sticky, shrinks on scroll, with language toggle), Footer (incl. newsletter signup), "Book a Consultation" CTA button, testimonial/case-study cards, buttons, toggles/tabs, animated counters, parallax section wrapper, floating back-to-top button, cookie consent banner, exit-intent popup.
+
+---
+
+## BRAND ASSETS & CONFIRMED REAL CONTENT
+
+Use these real assets and details directly - do not treat them as placeholders.
+
+**Logo:** Devorica logo will be supplied as three files: a black wordmark-on-white, a white wordmark-on-black, and a standalone geometric "D" icon mark (an isometric arrow/play-button shape). Use the black/white full wordmark in the navbar and footer depending on background, and the standalone "D" icon mark as the **favicon**, browser tab icon, and any compact/mobile-nav logo mark. *(See PENDING FROM CLIENT - build the logo `<img>`/component slots now with clearly named placeholder file paths, e.g. `/assets/logo-white.svg`, ready to receive the real files.)*
+
+**Contact details:**
+- Email: `support@devorica.com`
+- Phone / WhatsApp: `01619504428` (same number for both call and WhatsApp click-to-chat)
+- Address: Manikpur, Senbag, Noakhali, Bangladesh - **embed the real address in the Google Maps iframe** on the Contact page (confirmed, not a generic area placeholder).
+- Hours: display as **"Available 24/7"** rather than fixed office hours.
+- Founded: 2022 ("Since 2022" can appear in About/footer).
+- Payment methods to mention on Pricing/Contact pages: **bKash, Nagad, Bank transfer, PayPal/Stripe** (for international clients).
+
+**Real testimonials (use these verbatim as quotes, translate the Bangla one for an English-locale view but keep original Bangla for the Bangla locale). Client has confirmed more testimonials exist beyond these 3 - build the testimonial grid/mosaic to comfortably extend to 4–8 cards (e.g., a scrollable/paginated grid or expanded mosaic) rather than a rigid 3-card layout, so additional real reviews can be dropped in later without a redesign:**
+1. **CodeVibe** (Facebook review): "They provide good services, but responses are a little bit slow. Other than that, the working experience is very good and much better than many other Bangladeshi agencies."
+2. **Ratul Mart** (Facebook review): "Devorica built exactly the website I was looking for. The design is clean, professional, and their attention to detail is spot on. Replies were sometimes a bit slow, but they always got back to me and resolved every issue. Very satisfied with the final product and would definitely work with them again."
+3. **Digital Dynamo** (Facebook review, Bangla): a glowing review praising Devorica's work quality, behavior, willingness to make revisions, a premium-feeling website, smooth mobile experience, and continued support after project completion - keep the original Bangla text for the Bangla locale, and provide a natural English translation for the English locale.
+- Display these as testimonial cards with a small "Facebook review" attribution/badge, star rating if shown, and the reviewer's business name.
+
+**Real case studies (build the "Client Success Stories" section and Services-page case-study links around these 3 real projects). Client has confirmed these should stay general/credible rather than detailed for now - this is a final decision, not a pending item:**
+1. **bikkhipto.com**
+2. **easysubbd.com**
+3. **bayloz.com**
+- For each, write a short case-study card (client/project name, one-line description of the type of site/work delivered, "Read More" link pointing to the live site). Keep descriptions general but credible (e.g., "A custom e-commerce/web platform built for performance and ease of use, tailored to the Bangladeshi retail market"), and mark with `{/* PLACEHOLDER: confirm exact project description */}` so a more detailed real story can be dropped in later if the client chooses.
+
+**Core values (About page, 4 value cards):**
+1. Client-First Communication
+2. Honest, Transparent Pricing
+3. Speed & Reliability
+4. Bold, Modern Design
+
+**Team:** currently a small team of 1–3 people - keep the About page team grid modest (don't overstate team size); **abstract geometric avatar placeholders per person** (confirmed - no real headshots for this build), name + role, short one-line bio.
+
+**Social media:** Footer/navbar social links go to **Facebook, LinkedIn, Instagram, Behance/Dribbble** (confirmed platform set). Client has real URLs to supply - use `#` placeholder links with a `{/* PLACEHOLDER: insert real social URL */}` comment until supplied.
+
+**Real stats for hero badges / "Immediate Impact" / "Identify the Barriers" sections:** client has confirmed real numbers exist for projects delivered, years active, client satisfaction %, and industries served. *(See PENDING FROM CLIENT - until the actual figures are supplied, keep the existing placeholder numbers like "150+ Projects Delivered" / "98% Client Satisfaction" but tag each with `{/* PLACEHOLDER: replace with real client-supplied stat */}` so they're trivial to swap in one pass.)*
+
+---
+
+## PRICING & CURRENCY (confirmed logic - reverses original USD-default draft)
+
+- **BDT is the primary displayed currency** across all 3 pricing tiers - Starter, Growth, Enterprise - since the target audience is mostly local Bangladeshi SMEs. USD appears as a secondary/converted figure (e.g., large BDT price with a smaller "≈ $X USD" beneath or beside it), not the other way around.
+- **Live exchange rate API:** use **open.er-api.com** (no API key required, generous free tier) to fetch the current USD→BDT rate on page load; cache it for the session (e.g., in memory or `sessionStorage`-equivalent state, not `localStorage` per the artifact/browser-storage constraints if built as an artifact - for a real deployed site, a simple in-memory fetch-once-per-session is fine).
+- **Hardcoded fallback rate:** if the API call fails, fall back to **1 USD ≈ 123 BDT** (reflects the real market rate as of July 2026) rather than an outdated placeholder.
+- Client has confirmed **real pricing tiers exist** for Starter/Growth/Enterprise but hasn't supplied the actual figures yet - keep the tier structure, deliverables, and BDT/USD toggle fully built and functional, with the actual numbers marked `{/* PLACEHOLDER: confirm real pricing in BDT */}` so they can be dropped in without touching the currency-conversion logic.
+- Enterprise tier still shows "Custom Quote" rather than a fixed number (unchanged from original draft).
+- Payment methods to surface on the pricing page or nearby: **bKash, Nagad, Bank transfer, PayPal/Stripe**.
+
+---
+
+## COLOR PALETTE (OFFICIAL Devorica brand palette - use these exact hex values as CSS variables / Tailwind theme extension)
+
+```css
+--color-branding-orange: #E85002;   /* PRIMARY BRAND COLOR - CTAs, headline highlight word, active states, icon accents, badges */
+--color-primary-black:    #000000;   /* primary background - hero, dark sections, footer, navbar */
+--color-white:            #F9F9F9;   /* light section backgrounds, text on dark */
+--color-gray:             #646464;   /* secondary/muted body text, borders */
+--color-dark-gray:        #333333;   /* dark cards, subtle dividers on black sections */
+--color-light-gray:       #A7A7A7;   /* placeholder text, disabled states, icon strokes */
+
+/* Branding gradient - used for hero glows, section transitions, and background washes */
+--gradient-branding: linear-gradient(90deg, #000000 0%, #C10801 35%, #F16001 70%, #D9C3AB 100%);
+```
+
+Usage rules:
+- Backgrounds alternate: **primary-black** (hero, dark feature sections, footer) ↔ **white/#F9F9F9** (problem/services sections, case studies).
+- `--color-branding-orange` is the single loudest accent: used for the highlighted word in headlines, primary buttons, small badge dots, active tab underline, icon accents, numbered tags ("#01", "#02"). Do not overuse it - one strong pop per section.
+- `--gradient-branding` is used sparingly for full-bleed glow effects behind hero imagery, radial spotlight behind portraits, and as a background wash on transition sections (mirrors the black→red→orange→tan gradient bar framing used in the Fluxora reference).
+- Cards on dark backgrounds use `--color-dark-gray` (#333333) as base, with `--color-branding-orange` used only for borders/glows on hover; cards on light backgrounds use `--color-white`/`#F9F9F9` with soft shadow and a thin 1px `--color-light-gray` border.
+- Body copy: `--color-white`/`--color-light-gray` on dark sections, `--color-gray`/near-black on light sections.
+
+---
+
+## TYPOGRAPHY (confirmed - "NOTHING" is a licensed, real primary font, not an aspirational choice)
+
+- **Display / Heading font: "NOTHING"** - a bold, tall, condensed grotesque. **Client confirms this is a licensed/owned font, so it is the real, primary display font for this build - not a fallback scenario.** Use for all H1/H2 headlines, big stat numbers, and the footer wordmark. Extra-bold weight, tight/negative letter-spacing, all-caps or sentence case depending on section (H1 sentence case, stat numbers/footer wordmark can be uppercase for impact). H1 ~56–72px desktop / ~34–40px mobile.
+  - Load the actual "NOTHING" font files via `@font-face` (client to supply `.woff2`/`.woff` files - treat this as a `{/* PLACEHOLDER: insert real NOTHING font files */}` asset slot, same category as the logo).
+  - **Olline** or **Archivo Black**/**Space Grotesk (Bold)** remain only as a genuine last-resort CSS fallback stack (e.g., if font files fail to load), not the intended default.
+- **Body font:** a clean, neutral grotesque that pairs quietly with NOTHING - e.g., Inter or General Sans, regular/medium weight. Comfortable line-height (1.5–1.6), 16–18px, `--color-light-gray`/`--color-gray` tone.
+- One or two words in every major headline are colored in `--color-branding-orange` for emphasis (e.g., "Premium Design, **Accessible Pricing**" - reflecting the confirmed positioning), and may use an italic style on the accent word for extra editorial flair.
+- Small uppercase eyebrow labels above section headings (e.g., "WHY CHOOSE US", "OUR SERVICES") in `--color-light-gray`, wide letter-spacing, small size, with a small orange dot/icon before it - body font, not the display font.
+- Big numeric stats (e.g., real client-supplied numbers once available) always set in the NOTHING display font, extra-bold, often paired with a small label underneath in the body font.
+- Bangla text should use a font that supports Bengali glyphs cleanly (e.g., **Noto Sans Bengali** or **Hind Siliguri**) for Bangla headings/body, since NOTHING won't have Bengali glyphs - swap the heading font specifically for Bangla content so it still reads bold and confident.
+
+---
+
+## GLOBAL COMPONENTS
+
+### Navbar
+- Fixed/sticky, black background. **Shrinks and compacts on scroll** (reduced padding/logo size) and stays sticky at the top with the CTA button always visible/reachable.
+- Left: Devorica wordmark logo (white version on black navbar).
+- Center/left nav links: Home, Services, About, Case Studies, Contact.
+- Right: small **EN / BN language toggle** (compact square switch, active language in `--color-branding-orange`) + a solid `--color-branding-orange` square-cornered button "Let's Talk" / "Book a Call". Since conversion priority is equal across channels, this button can deep-link to the Contact page's form section rather than being the sole conversion path.
+- Mobile: hamburger menu, slide-down or drawer nav on black background; language toggle sits inside the mobile drawer.
+
+### Internationalization (English / Bangla) - full content both languages, confirmed
+- Use `react-i18next`. Store all copy in `en.json` and `bn.json` translation files, keyed by section (e.g., `hero.title`, `services.card1.title`). **Write complete, natural Bangla copy for every key alongside English - this is a full bilingual launch, not an English-first MVP with Bangla added later.**
+- Language toggle in the navbar switches the active language instantly (no page reload), persists the choice (e.g., `localStorage`), and defaults to **English**.
+- Bangla text should use a font that supports Bengali glyphs cleanly alongside the NOTHING display font for Latin headings (pair with **Noto Sans Bengali** or **Hind Siliguri** for Bangla headings/body) - swap the heading font specifically for Bangla content so it still reads bold and confident.
+- Smooth cross-fade/height-adjust when switching EN/BN so layout doesn't jump abruptly (Bangla text often runs longer - allow flexible container heights).
+
+### Buttons
+- **Primary button:** solid `--color-branding-orange` background, off-white text, **sharp/square corners** (0–2px radius max), small arrow icon on the right, subtle hover darken/scale.
+- **Secondary/outline button:** transparent background, 1px off-white or light-gray border, off-white text, sharp corners, hover fills with white/10% opacity.
+- **Ghost/text link with icon:** used inside cards ("Read More →"), light-gray/orange text, arrow shifts right on hover.
+
+### Toggles / Tabs
+- Used for "Process" steps, and the Services-page **BDT/USD** (BDT-first) and pricing tier switchers: square-edged tab group (not pill-shaped), inactive tabs light-gray/transparent text, active tab solid `--color-branding-orange` (or black) background with white text, smooth sliding transition, sharp corners throughout.
+
+### Cards
+- **Service card:** dark card, sharp corners, top image/illustration area (Three.js-rendered abstract graphic or icon composition), title, one-line description, "Read More" link with arrow. Hover: slight lift + border glow in `--color-branding-orange`.
+- **Stat card:** compact, icon + big bold number (in `--color-branding-orange`) + label underneath, off-white/dark card, sharp corners.
+- **Testimonial/impact card:** mix of dark cards and solid `--color-branding-orange` quote cards, small avatar + name + role, short quote in bold, sharp corners, small "Facebook review" badge where applicable. Build to gracefully extend beyond 3 cards.
+- **Case study card:** image/graphic thumbnail, small "CASE STUDY" eyebrow tag, bold title, "Read More" link, sharp corners, on light background.
+
+### Back-to-top button
+- Floating square button, bottom-right (positioned to not overlap the Tawk.to chat bubble/WhatsApp button - stack them vertically with spacing), appears after scrolling past the hero, `--color-branding-orange` background, up-arrow icon (Phosphor), fades/slides in on appearance.
+
+### Cookie consent banner
+- Bottom-of-screen bar (dark background, sharp corners) appearing on first visit: short copy about cookies for **Google Analytics and Facebook Pixel** (confirmed analytics/tracking stack) plus live chat, "Accept" button (`--color-branding-orange`) and a "Decline"/"Learn more" link to the Privacy Policy page. Store consent choice in `localStorage` so it doesn't reappear.
+
+### Exit-intent popup (confirmed - keep as originally specced)
+- Triggered once per session when desktop cursor moves toward the top of the viewport (mouseleave detection) - a centered modal, sharp corners, dark background with `--color-branding-orange` accent: short headline ("Wait - get a free consultation") + short subtext + email/quick-contact field or a "Book a Consultation" button + close (X) icon. Never trigger on mobile (no reliable exit-intent signal there).
+
+---
+
+## PAGE 1 - HOME
+
+1. **Hero (black background, full-bleed `--gradient-branding` glow behind subject, Three.js scene - Fluxora-style)**
+   - Top-left: small globe icon + "Hub support for clients from all over the world."
+   - H1 (NOTHING font): "Technology **Crafted for People**, Not Machines" (or similar - write 2–3 alternate headline options that also nod to the "premium quality, accessible price" positioning, e.g. "Agency-Grade Design. **Accessible Pricing.**"; the accent word/phrase set in `--color-branding-orange`, one word in italic body font for editorial contrast).
+   - Subtext: 1–2 sentences on helping Bangladeshi e-commerce/retail businesses launch fast, modern, conversion-focused websites and brands - premium quality without the premium price tag.
+   - Primary CTA: pill button "Get Started" / "Book a Consultation" in `--color-branding-orange` with white arrow-circle icon, plus a small stacked-avatar cluster + client-count caption beside it (real number pending - see PENDING FROM CLIENT).
+   - Right side: large **custom Three.js 3D hero scene** - an isometric/floating composition of geometric shapes, code-bracket or browser-window motifs, and a glowing gradient sphere or diamond, rendered in the branding-orange/black gradient palette, subtle rotation/idle animation, subtle interactive tilt on mouse move where feasible; full-bleed gradient glow (`--gradient-branding`) radiating behind the composition. Lazy-load this scene and provide a static-image fallback for slow connections/reduced-motion users.
+   - Two floating stat badge cards overlapping the hero graphic bottom-left, dark translucent glass cards with a subtle backdrop-blur: e.g. "150+ Projects Delivered" and "98% Client Satisfaction" - mark clearly as `{/* PLACEHOLDER: replace with real client-supplied stat */}`, each number animating up from 0 on scroll-into-view.
+   - Below hero: "Our Partners" label + horizontal row/auto-scrolling strip of client/partner logos (generic placeholder logos, monochrome white, fade-in edges, swappable later per client confirmation).
+
+2. **"Meet the Minds Behind the Work" (black background - Fluxora-inspired)**
+   - Small eyebrow: "· Why Choose Us" + social icons (Facebook, LinkedIn, Instagram, Behance/Dribbble) top-right, linking to `#` placeholders pending real URLs.
+   - H2 (NOTHING): "Meet the Minds Behind the Work."
+   - Left: abstract Three.js geometric avatar/blob composition in the branding gradient, standing in for the founder/lead portrait (no real headshots for this build).
+   - Right: short paragraph - "At Devorica, we bring together developers, designers, and strategists across Laravel, Python, Node.js, React, TypeScript, Java, and Flutter to craft bold, fast, reliable digital products." + small trusted-partners caption with stacked avatar cluster.
+   - Two small cards below the paragraph: a dark "Trusted Partners" card with mini partner-logo list + orange "Book a Call" button, and a solid `--color-branding-orange` "Fact" card showing a rotating stat with a small progress/carousel indicator (01/04 style) - numbers pending real figures.
+
+3. **"The Hidden Cost of a Weak Website" (black → `--gradient-branding` transition section)**
+   - Short paragraph: businesses lose customers to slow, outdated, or poorly designed sites; every week without a strong digital presence compounds lost revenue - particularly relevant for e-commerce/retail brands competing on conversion.
+   - Visual: a floating Three.js diamond/cube abstract shape in `--color-branding-orange`, subtle glow, matching reference's red diamond graphic.
+
+4. **"Built for the Problems That Matter Most" (off-white background)**
+   - Section eyebrow + heading, "Explore All" link top-right.
+   - 4 service cards:
+     - **Web Development** - "Fast, Scalable, Reliable." Custom websites & web apps built with the right stack for the job - Laravel, Node.js, React, or beyond.
+     - **UI/UX Design** - "Design That Converts." Interfaces that are beautiful and intuitive.
+     - **Branding & Identity** - "Brands People Remember." Logo, identity systems, brand guidelines.
+     - **Digital Strategy & Growth** - "Less Guesswork. More Growth." SEO, CRO, and performance strategy.
+   - Each card: mockup screenshot/dashboard-style image on right, dark card background, "Read More" link.
+   - Bottom bar: "Talk To Expert" with small avatar group + "Book a Consultation" button.
+
+5. **"We Make Immediate Impact" (off-white background)**
+   - Testimonial grid built to extend beyond 3 cards (see confirmed testimonial-layout note above): the 3 real testimonials plus room for the additional ones the client will supply - mix of dark card, solid `--color-branding-orange` quote card, and light card styles, each showing reviewer name/business, the quote, and a small "Facebook review" badge. Pair with 1–2 real animated-counter stats once supplied (placeholders until then).
+
+6. **"Identify the Barriers Holding Your Business Back" (black, split layout)**
+   - Left: abstract Three.js maze/barrier or fragmented-shape composition in the branding gradient, symbolizing obstacles to growth.
+   - Right: heading + 3 **animated counter** stats - numbers count up on scroll-into-view via Framer Motion; mark as placeholders pending real client-supplied figures.
+
+7. **"A Streamlined Process for Lasting Results" (off-white)**
+   - Numbered/tabbed process steps (toggle component): 1. Discover & Define, 2. Design & Develop, 3. Launch & Grow.
+   - Each tab reveals an image + short description panel.
+   - 3 trust badges below: "End-to-End Encryption", "Transparent Pricing", "Dedicated Support".
+
+8. **Marquee strip** - auto-scrolling row of service tags: "Web Development · UI/UX Design · Branding · SEO · E-commerce · Mobile Apps".
+
+9. **"Client Success Stories" (off-white)**
+   - "Explore All" link top-right.
+   - 3 case study cards for **bikkhipto.com**, **easysubbd.com**, and **bayloz.com** - image/graphic thumbnail + eyebrow "CASE STUDY" + project name + one-line general-but-credible description + "Read More" link opening the live site in a new tab.
+
+10. **Final CTA ("Take the Next Step Toward Success")**
+    - Black or `--gradient-branding` background, heading + subtext, "Book a Consultation" button, supporting Three.js abstract graphic collage.
+
+11. **Footer (black)**
+    - Left: "Email Us" + `support@devorica.com`, "Book a Consultation" button, WhatsApp link (`01619504428`).
+    - **Newsletter signup:** small email input + "Subscribe" button in the footer, sharp corners, short label ("Get occasional updates from Devorica").
+    - Columns: Pages (Home, Services, About, Contact), Solutions (Web Dev, UI/UX, Branding, Strategy), Company (About, Case Studies, Pricing, Privacy Policy, Terms of Service), Social (Facebook, LinkedIn, Instagram, Behance/Dribbble - placeholder URLs pending).
+    - Language toggle repeated in the footer for accessibility.
+    - Large faint "DEVORICA" wordmark stretched across the bottom, "© 2026 Devorica. Designed & Developed by Devorica. Since 2022."
+
+---
+
+## PAGE 2 - SERVICES
+
+- Hero band (black): "Our Services" heading + short intro.
+- Full breakdown of each service from the homepage cards, each as its own larger section (icon, heading, description, bullet list of deliverables, mockup/image, small "what's included" checklist, CTA). For **Web Development**, explicitly list the confirmed stack: Laravel, Python, Node.js, React, TypeScript, Java, Flutter - framed as "we pick the right tool for your project," not a fixed template.
+- **Pricing section - 3 tiers, BDT-primary dual currency:**
+  - Layout: 3-column pricing cards (stack on mobile), sharp corners, middle tier visually highlighted (border glow in `--color-branding-orange`, "Most Popular" badge).
+  - **BDT/USD toggle** above the cards (square-edged toggle) that switches the displayed price format across all 3 cards at once - **default to BDT**. Fetch a live USD→BDT rate from **open.er-api.com** on load, cache it for the session, and fall back to **1 USD ≈ 123 BDT** if the API call fails.
+  - **Starter** - for small businesses/startups needing a solid launch site. Example: 1–5 page website, responsive design, basic SEO setup, 2 rounds of revisions. Price placeholder: `৳X / $X` (BDT primary, USD secondary), pending real pricing.
+  - **Growth** - for businesses needing a fuller web presence + branding. Example: up to 10 pages or a small web app, custom UI/UX design, brand identity starter kit, CMS integration, 1 month post-launch support. Price placeholder: `৳X / $X` ("Most Popular"), pending real pricing.
+  - **Enterprise** - for larger/custom projects. Example: full web application, complete brand system, ongoing strategy & optimization, dedicated project manager, SLA-backed support. Price: "Custom Quote" (no fixed number).
+  - Each tier: bullet list of included deliverables, CTA button ("Get Started" for Starter/Growth, "Contact Sales" for Enterprise).
+  - Mark all example prices clearly as `{/* PLACEHOLDER: confirm real pricing in BDT */}` since real tiers exist but haven't been supplied yet.
+  - Mention accepted payment methods near the pricing section: **bKash, Nagad, Bank transfer, PayPal/Stripe**.
+- Closing CTA band.
+
+## PAGE 3 - ABOUT
+
+- Hero: "About Devorica" heading, short brand story paragraph (Bangladeshi agency founded in 2022, based in Noakhali, mission to help e-commerce and retail brands grow digitally with premium-quality, accessibly priced work).
+- Mission/vision block - work in the "premium quality, accessible price" positioning explicitly here.
+- Team grid: team member cards using **abstract geometric avatar graphics** (colored shape/gradient placeholders in the branding palette, confirmed - no real photos), keep to a small grid (1–3 people) matching the team's actual size, name + role, short one-line bio under each.
+- Values section - 4 value cards: **Client-First Communication**, **Honest, Transparent Pricing**, **Speed & Reliability**, **Bold, Modern Design** (each with a Phosphor icon and one-sentence description).
+- Stats band (years active - "Since 2022", projects delivered, clients served - placeholders pending real client-supplied numbers).
+- CTA band.
+
+## PAGE 4 - CONTACT
+
+- Hero: "Let's Build Something Great Together."
+- Two-column layout:
+  - Left = contact form: Name, Email, Phone, **Project Type dropdown** (Web Development / UI-UX Design / Branding / Digital Strategy / Other), **Project Budget Range dropdown - BDT-denominated (confirmed)**:
+    - Under ৳15,000
+    - ৳15,000 – ৳50,000
+    - ৳50,000 – ৳150,000
+    - ৳150,000+
+    *(Mark exact boundaries as easy to adjust once real pricing tiers are finalized - these should roughly track the Starter/Growth/Enterprise price bands.)*
+  - Message, hidden honeypot field, Submit button in `--color-branding-orange` with sharp corners.
+  - On submit: POST to `contact.php` (SMTP-backed `mail()`, confirmed available on hosting), show an inline success message ("Thanks - we'll be in touch within 24 hours") and also offer/redirect to a simple dedicated Thank You page/state.
+  - Right = contact details card: email (`support@devorica.com`), phone/WhatsApp (`01619504428`, WhatsApp click-to-chat button using `https://wa.me/8801619504428`), address (Manikpur, Senbag, Noakhali), "Available 24/7" note, social links (placeholder URLs pending), and an **embedded Google Map (iframe embed) using the real address** (Manikpur, Senbag, Noakhali - confirmed, not a generic area pin).
+- **Live chat widget:** integrate **Tawk.to** as a floating chat bubble bottom-right of the page, site-wide via the root layout. Since the client doesn't have a Tawk.to account/property ID yet, embed the script with a clearly marked placeholder ID (`{/* PLACEHOLDER: insert real Tawk.to property ID once account is created */}`) and a short code comment explaining the one-time setup step (create free Tawk.to account → get widget ID → replace placeholder). Position it so it doesn't overlap the WhatsApp button or back-to-top button (stack vertically with spacing, or place WhatsApp button to the left of the chat bubble).
+- **FAQ accordion** below - 4–5 plausible questions/answers covering process, pricing, timeline, and support, e.g.:
+  - "How long does a typical project take?"
+  - "Do you offer support after launch?"
+  - "What's included in your pricing tiers?"
+  - "Can you work with an existing brand/design, or only build from scratch?"
+  - "Do you take on e-commerce projects specifically?"
+- Footer.
+
+## PAGE 5 - PRIVACY POLICY
+
+- Standard privacy policy page (black/off-white sections matching site style): what data is collected (contact form, cookies, analytics, chat widget), how it's used, third-party services disclosed - **Google Analytics, Facebook Pixel, Tawk.to** (confirmed analytics/tracking stack) - user rights, contact for privacy questions. Use clear placeholder legal language and note `{/* PLACEHOLDER: have a lawyer review before publishing */}`. Business registration/trade license number stays as `{/* PLACEHOLDER: insert registration number if applicable */}` (confirmed not available yet).
+
+## PAGE 6 - TERMS OF SERVICE
+
+- Standard terms of service page: service scope, payment terms (mention bKash/Nagad/Bank transfer/PayPal/Stripe as accepted methods), revisions policy, intellectual property/ownership of delivered work, liability limitations, governing law (Bangladesh). Same placeholder-legal-language caveat as Privacy Policy, including the registration-number placeholder.
+
+## PAGE 7 - 404 (NOT FOUND)
+
+- Custom branded error page: large "404" in the NOTHING display font, short friendly copy ("This page wandered off - let's get you back on track"), the Devorica icon mark, and a "Back to Home" button. Keep it on-brand (black background, orange accent, sharp corners) rather than a generic error page.
+
+---
+
+## CONTENT / ASSET NOTES
+
+- **Use real assets already available:** real client testimonials (3 confirmed, more pending), real case studies, and real contact details (email, phone, address) - insert these wherever the reference used photos/quotes/stats. Logo files, additional testimonials, real stats/pricing, and social URLs are pending supply from the client (see PENDING FROM CLIENT at top) - build placeholder slots that are trivial to fill once received.
+- **Imagery priority - custom 3D over photography (confirmed):** most visuals on this site should be **custom Three.js/Spline-style 3D scenes** (geometric shapes, gradient blobs, isometric browser/device mockups, glowing diamond/cube motifs, particle fields) rendered in the branding-orange/black/gradient palette. No real photography anywhere in this build (team stays abstract).
+- Build the Three.js scenes as reusable, parameterized components (`<AbstractGraphic variant="hero" />`, `<AbstractGraphic variant="barrier" />`, etc.) so the same lightweight scene logic can be reused with different color/shape parameters across sections, keeping bundle size and maintenance manageable despite the richer visual approach.
+- **Clearly mark any remaining placeholders** (logo files, exact stat numbers, pricing figures, social URLs, Tawk.to ID, case study detail) with a code comment `{/* PLACEHOLDER: replace with real asset */}` so they're easy to find and swap later.
+
+---
+
+## INTERACTIONS / POLISH (rich motion - Framer Motion + Three.js - confirmed, keep full brief)
+
+- **Scroll-triggered reveals:** every section fades/slides up into view via `whileInView` + `viewport={{ once: true }}`, staggered for grids of cards (each card delayed slightly after the previous).
+- **Parallax:** hero Three.js scene and section background gradients move at a different scroll speed than foreground text (use `useScroll` + `useTransform` to translate/scale background layers as the user scrolls); apply parallax subtly to at least the hero, the "Hidden Cost" transition section, and the final CTA band.
+- **Custom cursor:** a small custom cursor dot/ring that follows the pointer on desktop, growing/changing color to `--color-branding-orange` when hovering over buttons, links, and cards; falls back to the default cursor on touch devices.
+- **Animated counters:** every stat number (hero badges, "We Make Immediate Impact", "Identify the Barriers", pricing/impact numbers) counts up from 0 to its target value when scrolled into view, using a `useMotionValue`/`useSpring` counter component.
+- **Marquees everywhere:** partner-logo strip, service-tag strip, and a "Trusted by Brands" strip all auto-scroll infinitely (CSS animation or Framer Motion `animate` with `repeat: Infinity`), pausing on hover; consider a second marquee running in the opposite direction for visual rhythm.
+- **Card hover states:** scale (1.02–1.04) + shadow/border glow in `--color-branding-orange` + slight 3D tilt-on-hover (subtle `rotateX`/`rotateY` following cursor position) for feature/service cards.
+- **Button hover:** scale/darken + arrow icon translate-x; primary CTA buttons get a soft pulsing glow in `--color-branding-orange` on idle (very subtle, not distracting).
+- **Language toggle transition:** smooth cross-fade/height-adjust when switching EN/BN so layout doesn't jump abruptly (Bangla text often runs longer - allow flexible container heights).
+- Fully responsive: stack all multi-column sections to single column under `md:` breakpoint; hero graphic moves below text on mobile; disable heavier parallax/cursor effects on mobile/touch devices for performance, and disable/simplify Three.js scenes on low-end mobile where feasible (e.g., static image fallback below a certain viewport width or `navigator.hardwareConcurrency` threshold).
+- **Performance guardrail:** despite the rich motion and Three.js brief (confirmed as a deliberate choice), keep initial load as fast as reasonably possible given the visual ambitions - lazy-load below-the-fold 3D graphics, **respect `prefers-reduced-motion`** (fall back to simple fades - this is the primary accessibility safety valve rather than trimming the default experience), and avoid blocking the main thread with the custom cursor on lower-end devices.
+- Accessible: proper heading hierarchy, alt text on all images/graphics, sufficient color contrast for body text on both black and off-white backgrounds, visible focus states on all interactive elements, and full keyboard navigability even with the custom cursor enabled.
+
+---
+
+## ADDITIONAL LAYOUT DETAIL (Folioblox-style numbered list)
+
+- Somewhere in the hero or an "About the studio" strip, include a small horizontal numbered list in the body font: `#01 Web Development   #02 UI/UX Design   #03 Branding   #04 Digital Strategy` - numbers in `--color-branding-orange`, labels in `--color-white`, small size, evenly spaced under the H1.
+- "Trusted by Brands" row: small monochrome partner/client logo row (placeholder logos, swappable later) with a short "Trusted by Brands We've Helped Shape" label.
+
+---
+
+## DELIVERABLE
+
+Generate the full React + Tailwind project structure with:
+- `tailwind.config.js` including the custom color palette above as named theme colors, plus `--gradient-branding` as a background-image utility. Dark theme only - no `dark:`/light mode variants needed.
+- Font setup: load **NOTHING** (real, licensed font - client to supply font files) for `font-heading` (Latin), **Noto Sans Bengali** or **Hind Siliguri** for Bangla headings/body, and a clean grotesque (Inter/General Sans) for `font-body` (Latin). Include `@font-face` declarations with a graceful CSS fallback stack (Olline/Archivo Black/Space Grotesk) in case font files fail to load.
+- **Animation:** Framer Motion installed and used throughout per the "Interactions / Polish" section - scroll reveals, parallax, animated counters, custom cursor, marquees.
+- **3D graphics:** Three.js (via `@react-three/fiber` + `@react-three/drei` recommended) for the abstract hero/section scenes, built as reusable parameterized components.
+- **i18n:** `react-i18next` wired up with fully written `en.json`/`bn.json` locale files (both languages complete for launch) and a working navbar/footer language toggle, defaulting to English.
+- **Live chat:** Tawk.to script embedded site-wide via the root layout, floating bottom-right, with a placeholder property ID pending account creation.
+- **Currency conversion:** a small utility/hook that fetches the live USD→BDT rate from `open.er-api.com` on load, caches it for the session, and falls back to `1 USD ≈ 123 BDT` on failure - used by the Services page pricing cards (BDT-primary display).
+- **Deployment artifacts:** `contact.php` (SMTP-backed `mail()`), `.htaccess` (SPA rewrite rules for cPanel/Apache), `sitemap.xml`, `robots.txt` - all using `devorica.com` as the placeholder domain.
+- Reusable components: `Navbar` (incl. language toggle), `Footer`, `Button`, `ServiceCard`, `StatCard` (animated counter), `TestimonialCard` (extensible grid), `CaseStudyCard`, `PricingCard` (BDT/USD toggle), `Tabs`, `CTASection`, `TeamCard`, `Marquee`, `CustomCursor`, `AbstractGraphic` (Three.js scene wrapper, parameterized by variant).
+- Pages: `Home.jsx`, `Services.jsx` (incl. pricing section), `About.jsx`, `Contact.jsx` (incl. form + live chat), `PrivacyPolicy.jsx`, `TermsOfService.jsx`, `NotFound.jsx`, with routing (React Router).
+- Clean, commented code, no unused dependencies, and `prefers-reduced-motion` handling for all Framer Motion effects.
+- All `{/* PLACEHOLDER: ... */}` comments consistently named and easy to grep for, so the client can search-and-replace once pending assets (logo files, font files, real stats/pricing, social URLs, Tawk.to ID) are supplied.

@@ -1,0 +1,601 @@
+# DEVORICA BRAND GUIDELINES
+
+Version: 1.0
+
+Status: Core Documentation
+
+This document defines how DEVORICA should think, communicate, look and behave.
+
+Everything built under the DEVORICA brand must follow this document.
+
+---
+
+# BRAND MISSION
+
+DEVORICA exists to help businesses grow through premium digital experiences.
+
+We build websites.
+
+We build web applications.
+
+We build eCommerce systems.
+
+We build business tools.
+
+But above everything,
+
+we build trust.
+
+---
+
+# BRAND VISION
+
+Become Bangladesh's most trusted premium web design and development company.
+
+Not by being the cheapest.
+
+Not by being the biggest.
+
+But by delivering exceptional quality.
+
+---
+
+# BRAND POSITIONING
+
+DEVORICA is NOT
+
+• Freelancer
+• Software Company
+• IT Farm
+• Outsourcing Company
+• Theme Seller
+
+DEVORICA IS
+
+A premium digital agency.
+
+A product design company.
+
+A web engineering studio.
+
+A technology partner.
+
+A long-term business partner.
+
+---
+
+# BRAND PERSONALITY
+
+Imagine DEVORICA as a real human.
+
+Age
+
+32
+
+Appearance
+
+Minimal
+
+Elegant
+
+Clean
+
+Professional
+
+Quiet Confidence
+
+Behaviour
+
+Patient
+
+Intelligent
+
+Creative
+
+Detail Oriented
+
+Strategic
+
+Reliable
+
+Helpful
+
+Never Arrogant.
+
+Never Loud.
+
+Never Over Excited.
+
+Never Desperate.
+
+---
+
+# BRAND VOICE
+
+Every sentence should sound
+
+Professional
+
+Simple
+
+Confident
+
+Friendly
+
+Honest
+
+Never use
+
+Marketing hype.
+
+Buzzwords.
+
+Fake promises.
+
+Corporate jargon.
+
+Instead say
+
+"We build websites that help businesses grow."
+
+Instead of
+
+"We revolutionize digital transformation using cutting-edge innovation."
+
+---
+
+# TONE OF VOICE
+
+We speak like experienced professionals.
+
+Short sentences.
+
+Simple words.
+
+High confidence.
+
+No unnecessary complexity.
+
+Every paragraph should be easy to scan.
+
+---
+
+# TARGET AUDIENCE
+
+Primary Audience
+
+Small Business Owners
+
+Startups
+
+SMEs
+
+Agencies
+
+Local Brands
+
+Restaurants
+
+Doctors
+
+Law Firms
+
+Educational Institutes
+
+Corporate Companies
+
+Secondary Audience
+
+Entrepreneurs
+
+Founders
+
+Personal Brands
+
+Creators
+
+E-commerce Businesses
+
+NGOs
+
+---
+
+# CUSTOMER PSYCHOLOGY (Bangladesh)
+
+Before buying,
+
+customers ask:
+
+Can I trust them?
+
+Have they done this before?
+
+Can they finish on time?
+
+Will they reply after payment?
+
+Will my website actually help my business?
+
+Can I contact them easily?
+
+Therefore,
+
+every page should answer these questions before asking for a sale.
+
+---
+
+# TRUST SIGNALS
+
+Always include:
+
+Real Portfolio
+
+Real Client Testimonials
+
+Project Numbers
+
+Years of Experience
+
+Technology Stack
+
+Business Address
+
+WhatsApp
+
+Email
+
+Phone
+
+Social Profiles
+
+Clear Contact Form
+
+Professional Photography (if available)
+
+Transparent Process
+
+Clear Pricing or Pricing Strategy
+
+---
+
+# UNIQUE SELLING POINTS
+
+DEVORICA should communicate:
+
+Premium Design
+
+Fast Performance
+
+SEO-Friendly Development
+
+Modern Technologies
+
+Responsive Support
+
+Custom Development
+
+Long-Term Partnership
+
+Attention to Detail
+
+Business-Oriented Thinking
+
+---
+
+# DESIGN LANGUAGE
+
+Design Keywords
+
+Premium
+
+Minimal
+
+Swiss
+
+Editorial
+
+Calm
+
+Luxury
+
+Modern
+
+Clean
+
+Elegant
+
+Professional
+
+Human
+
+Timeless
+
+Avoid
+
+Corporate Blue Everywhere
+
+Cheap Gradients
+
+Template Feel
+
+Visual Noise
+
+Excessive Effects
+
+Heavy Glass
+
+Random Colors
+
+---
+
+# TYPOGRAPHY PERSONALITY
+
+Typography is our strongest branding tool.
+
+Large Headlines.
+
+Comfortable Reading Width.
+
+Editorial spacing.
+
+Readable paragraphs.
+
+Never overcrowd text.
+
+Never center-align long paragraphs.
+
+---
+
+# COLOR PERSONALITY
+
+Monochrome first.
+
+Accent second.
+
+Background dominates.
+
+Whitespace dominates.
+
+Color should guide attention.
+
+Not decorate.
+
+---
+
+# IMAGERY
+
+Prefer
+
+Real Work
+
+Real UI
+
+Real Products
+
+Real Screens
+
+Real Team
+
+Avoid
+
+Fake Meetings
+
+Smiling Stock Photos
+
+Overused Office Images
+
+Random AI Faces
+
+---
+
+# ICONOGRAPHY
+
+Simple.
+
+Consistent.
+
+Minimal.
+
+Rounded.
+
+Custom feel.
+
+Never use random icon packs.
+
+---
+
+# BUTTONS
+
+Buttons should feel expensive.
+
+Large enough to click.
+
+Generous padding.
+
+Clear hierarchy.
+
+Primary CTA appears only where important.
+
+Do not create CTA overload.
+
+---
+
+# COPYWRITING RULES
+
+Never say
+
+Best Company
+
+Number One
+
+Guaranteed Success
+
+World Class
+
+Unless it is objectively true.
+
+Instead
+
+Explain value.
+
+Explain process.
+
+Explain results.
+
+Explain benefits.
+
+---
+
+# CALL TO ACTION
+
+Primary CTA
+
+Start Your Project
+
+Book a Free Consultation
+
+Let's Talk
+
+Get a Quote
+
+Secondary CTA
+
+View Portfolio
+
+Explore Services
+
+See Our Work
+
+Read Case Study
+
+---
+
+# HOMEPAGE MESSAGE
+
+Within five seconds visitors should understand:
+
+Who we are.
+
+What we do.
+
+Who we help.
+
+Why trust us.
+
+How to contact us.
+
+Nothing else matters before these five questions are answered.
+
+---
+
+# DIFFERENTIATION
+
+DEVORICA wins by
+
+Quality
+
+Trust
+
+Clarity
+
+Consistency
+
+Experience
+
+Attention to Detail
+
+Not by
+
+Cheap Price
+
+Fake Offers
+
+Flashy Animation
+
+Marketing Tricks
+
+---
+
+# BANGLADESH MARKET STRATEGY
+
+International visual quality.
+
+Local business understanding.
+
+Simple communication.
+
+Fast support.
+
+Transparent workflow.
+
+Real relationships.
+
+This is our competitive advantage.
+
+---
+
+# EMOTIONAL GOAL
+
+Visitors should feel:
+
+Calm
+
+↓
+
+Interested
+
+↓
+
+Confident
+
+↓
+
+Safe
+
+↓
+
+Impressed
+
+↓
+
+Ready to Contact
+
+Never overwhelm visitors.
+
+Never pressure visitors.
+
+Build confidence first.
+
+---
+
+# BRAND PROMISE
+
+Every website we create should make our clients look more professional than their competitors.
+
+If we cannot improve their business image,
+
+we have failed.
+
+---
+
+# AI CHECKLIST
+
+Before writing any copy or designing any section ask:
+
+✓ Does this increase trust?
+
+✓ Does this sound human?
+
+✓ Does this sound premium?
+
+✓ Does this help a business owner?
+
+✓ Does this avoid unnecessary marketing language?
+
+✓ Does this reflect Bangladesh's business culture?
+
+✓ Would a CEO confidently hire DEVORICA after reading this?
+
+Only after every answer is YES,
+
+continue.
