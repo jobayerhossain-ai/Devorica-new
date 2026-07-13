@@ -11,10 +11,9 @@ export default function Services() {
   const [currency, setCurrency] = useState('BDT');
   const { toUSD } = useCurrencyRate();
 
-  // {/* PLACEHOLDER: confirm real pricing in BDT */}
   const PRICES = {
-    starter: { bdt: null, label: 'X,XXX' },
-    growth:  { bdt: null, label: 'X,XXX' },
+    starter: { bdt: 15000 },
+    growth:  { bdt: 35000 },
   };
 
   const starterUSD = PRICES.starter.bdt ? toUSD(PRICES.starter.bdt) : null;
@@ -164,6 +163,7 @@ export default function Services() {
             <PricingCard
               tier={t('servicesPage.starter.name')}
               price={currency === 'BDT' ? PRICES.starter.bdt : starterUSD}
+              usdPrice={starterUSD}
               currency={currency}
               features={t('servicesPage.starter.features', { returnObjects: true })}
               cta={t('servicesPage.getStarted')}
@@ -172,6 +172,7 @@ export default function Services() {
             <PricingCard
               tier={t('servicesPage.growth.name')}
               price={currency === 'BDT' ? PRICES.growth.bdt : growthUSD}
+              usdPrice={growthUSD}
               currency={currency}
               features={t('servicesPage.growth.features', { returnObjects: true })}
               cta={t('servicesPage.getStarted')}
@@ -181,6 +182,7 @@ export default function Services() {
             <PricingCard
               tier={t('servicesPage.enterprise.name')}
               price={null}
+              usdPrice={null}
               currency={currency}
               features={t('servicesPage.enterprise.features', { returnObjects: true })}
               cta={t('servicesPage.contactSales')}

@@ -150,15 +150,20 @@ export function PricingCard({ tier, price, usdPrice, currency, features, cta, po
       )}
       <h3 className="font-heading text-white text-2xl mb-1">{tier}</h3>
       <div className="mt-4 mb-1">
-        {/* {/* PLACEHOLDER: confirm real pricing in BDT */}
-        <span className="font-heading text-brand-orange text-4xl">
-          {currency === 'BDT' ? '৳' : '$'}{price ?? 'X,XXX'}
-        </span>
-        {price && currency === 'BDT' && usdPrice && (
-          <span className="text-brand-lightGray text-sm ml-2">≈ ${usdPrice} USD</span>
-        )}
-        {price && currency === 'USD' && (
-          <span className="text-brand-lightGray text-sm ml-2">per project</span>
+        {price !== null ? (
+          <>
+            <span className="font-heading text-brand-orange text-4xl">
+              {currency === 'BDT' ? '৳' : '$'}{typeof price === 'number' ? price.toLocaleString('en-US') : price}
+            </span>
+            {currency === 'BDT' && usdPrice && (
+              <span className="text-brand-lightGray text-sm ml-2">≈ ${usdPrice} USD</span>
+            )}
+            {currency === 'USD' && (
+              <span className="text-brand-lightGray text-sm ml-2">per project</span>
+            )}
+          </>
+        ) : (
+          <span className="font-heading text-brand-orange text-3xl">Custom Quote</span>
         )}
       </div>
       <ul className="mt-6 space-y-3 flex-1">
