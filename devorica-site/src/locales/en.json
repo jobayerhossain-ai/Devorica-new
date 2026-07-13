@@ -191,10 +191,12 @@
       "features": [
         "1–5 page responsive website",
         "Mobile-first design",
-        "Basic SEO setup",
-        "2 rounds of revisions",
-        "Contact form integration",
-        "1-week post-launch support"
+        "Free High-Speed Hosting (1 Year)",
+        "Free SSL Certificate (HTTPS)",
+        "Sub-2s page load speed guarantee",
+        "Contact form & social links",
+        "bKash / Nagad / Rocket setup",
+        "2 weeks post-launch support"
       ]
     },
     "growth": {
@@ -203,24 +205,25 @@
       "features": [
         "Up to 10 pages or small web app",
         "Custom UI/UX design",
-        "Brand identity starter kit",
-        "CMS integration",
-        "Advanced SEO setup",
-        "1 month post-launch support",
-        "Performance optimization"
+        "Free Domain & Cloud Hosting (1 Year)",
+        "E-commerce / payment gateway integration",
+        "Sub-1.5s ultra-fast speed guarantee",
+        "Custom admin panel to manage content",
+        "Basic Facebook Pixel & Google Analytics",
+        "2 months post-launch support & security"
       ]
     },
     "enterprise": {
       "name": "Enterprise",
       "tagline": "Full-scale solutions for ambitious brands.",
       "features": [
-        "Full web application",
-        "Complete brand system",
-        "Ongoing strategy & optimization",
-        "Dedicated project manager",
-        "SLA-backed support",
-        "Custom integrations",
-        "Priority response"
+        "Full custom web application",
+        "High-performance dedicated server setup",
+        "API / ERP / Offline POS system sync",
+        "Complete design system & Brand Guidelines",
+        "Technical SEO & Sales Funnel Audit",
+        "Weekly status calls & Slack channel",
+        "6 months priority support & retainer"
       ]
     }
   },
