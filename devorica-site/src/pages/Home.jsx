@@ -116,13 +116,6 @@ export default function Home() {
             <Suspense fallback={<div className="w-full h-full bg-brand-gradient opacity-20" />}>
               <AbstractGraphic variant="avatar" className="w-full h-full" avatarColor="#ff5f00" />
             </Suspense>
-
-            {/* White Logo Icon Overlay */}
-            <div className="absolute pointer-events-none flex items-center justify-center opacity-90 drop-shadow-[0_0_20px_rgba(255,95,0,0.7)] transition-transform duration-500 hover:scale-110">
-              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 48 48" className="w-16 h-16 sm:w-24 sm:h-24 text-white fill-current">
-                <path fillRule="evenodd" d="M28 6.5 L36 11.5 L36 31.5 L20 41.5 L12 36.5 L12 16.5 L20 11.5 L28 16.5 Z M20 21.5 L28 26.5 L20 31.5 Z"/>
-              </svg>
-            </div>
           </div>
           {/* Right: copy */}
           <div>
