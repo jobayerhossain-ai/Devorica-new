@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main>
       {/* ───── HERO ───── */}
-      <section className="relative min-h-screen bg-black flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-screen bg-black flex items-center overflow-x-hidden pt-20">
         {/* Background gradient glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute right-0 top-0 w-2/3 h-full opacity-20"
@@ -99,7 +99,7 @@ export default function Home() {
         </div>
 
         {/* Partners strip */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-brand-darkGray py-4">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-brand-darkGray py-4 translate-y-5">
           <p className="text-center text-brand-lightGray text-xs mb-3 uppercase tracking-widest">{t('hero.partnersLabel')}</p>
           <Marquee items={['bikkhipto.com', 'easysubbd.com', 'bayloz.com', 'Partner Brand', 'Client Co.', 'Trusted Brand']} />
         </div>
