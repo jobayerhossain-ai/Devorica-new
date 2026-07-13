@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center" aria-label="Devorica Home">
-          <img src="/devorica-lodo.png" className="h-8 w-auto object-contain" alt="Devorica" />
+          <img src="/devorica-lodo.png" className="h-9 w-auto object-contain" alt="Devorica" />
         </Link>
 
         {/* Desktop nav */}
@@ -50,7 +50,7 @@ export default function Navbar() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors duration-200 ${
+                `text-lg font-medium transition-colors duration-200 ${
                   isActive ? 'text-brand-orange' : 'text-brand-lightGray hover:text-white'
                 }`
               }

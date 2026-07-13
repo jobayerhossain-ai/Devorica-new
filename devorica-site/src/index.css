@@ -141,6 +141,62 @@ h6 {
 .accent-word {
   color: var(--color-branding-orange);
   font-style: italic;
+  font-weight: 700;
+}
+
+.hero-accent-word {
+  display: inline-block;
+  font-weight: 900;
+  -webkit-text-stroke: 0.9px var(--color-branding-orange);
+  paint-order: stroke fill;
+}
+
+/* Enhanced highlight/glow on dark backgrounds */
+.bg-black .accent-word,
+.section-dark .accent-word,
+.card-dark .accent-word,
+section.bg-black .accent-word {
+  text-shadow: 0 0 25px rgba(232, 80, 2, 0.45);
+}
+
+section.bg-black .hero-accent-word {
+  text-shadow: none;
+}
+
+.services-icon-mask {
+  width: 9rem;
+  height: 9rem;
+  display: block;
+  background-color: #e85002;
+  opacity: 1;
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.service-card-icon-mask {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  background-color: #e85002;
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.service-card-icon-mask-lg {
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 /* =========================================================

@@ -4,10 +4,9 @@ import { motion } from 'framer-motion';
 
 // PLACEHOLDER: replace each '#' below with the real social media URL once supplied by client
 const SOCIAL_LINKS = [
-  { key: 'facebook',  href: '#' },
-  { key: 'linkedin',  href: '#' },
-  { key: 'instagram', href: '#' },
-  { key: 'behance',   href: '#' },
+  { key: 'facebook',  href: 'https://facebook.com/devorica' },
+  { key: 'instagram', href: 'https://instagram.com/devorica' },
+  { key: 'threads',   href: 'https://threads.net/@devorica' },
 ];
 
 export default function Footer() {

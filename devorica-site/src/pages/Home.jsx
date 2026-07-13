@@ -39,7 +39,7 @@ export default function Home() {
               className="font-heading text-white text-[clamp(2.25rem,6vw,5.5rem)] leading-[1.02] mb-6"
             >
               {t('hero.headline1')}<br />
-              <span className="accent-word">{t('hero.headline1Accent')}</span>
+              <span className="accent-word hero-accent-word">{t('hero.headline1Accent')}</span>
             </motion.h1>
 
             {/* Numbered service tags */}
@@ -187,10 +187,10 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { icon: <img src="/icon-webdev.png" className="w-14 h-14 object-contain" alt="Web Development" />, title: t('services.card1.title'), subtitle: t('services.card1.subtitle'), desc: t('services.card1.desc'), delay: 0 },
-              { icon: <img src="/icon-uiux.png" className="w-14 h-14 object-contain" alt="UI/UX Design" />, title: t('services.card2.title'), subtitle: t('services.card2.subtitle'), desc: t('services.card2.desc'), delay: 0.1 },
-              { icon: <img src="/icon-branding.png" className="w-10 h-10 object-contain" alt="Branding & Identity" />, title: t('services.card3.title'), subtitle: t('services.card3.subtitle'), desc: t('services.card3.desc'), delay: 0.2 },
-              { icon: <img src="/icon-digital-strategy.png" className="w-10 h-10 object-contain" alt="Digital Strategy & Growth" />, title: t('services.card4.title'), subtitle: t('services.card4.subtitle'), desc: t('services.card4.desc'), delay: 0.3 },
+              { icon: <span className="service-card-icon-mask service-card-icon-mask-lg" style={{ '--icon-url': "url('/icon-webdev.png')" }} role="img" aria-label="Web Development" />, title: t('services.card1.title'), subtitle: t('services.card1.subtitle'), desc: t('services.card1.desc'), delay: 0 },
+              { icon: <span className="service-card-icon-mask service-card-icon-mask-lg" style={{ '--icon-url': "url('/icon-uiux.png')" }} role="img" aria-label="UI/UX Design" />, title: t('services.card2.title'), subtitle: t('services.card2.subtitle'), desc: t('services.card2.desc'), delay: 0.1 },
+              { icon: <span className="service-card-icon-mask" style={{ '--icon-url': "url('/icon-branding.png')" }} role="img" aria-label="Branding & Identity" />, title: t('services.card3.title'), subtitle: t('services.card3.subtitle'), desc: t('services.card3.desc'), delay: 0.2 },
+              { icon: <span className="service-card-icon-mask" style={{ '--icon-url': "url('/icon-digital-strategy.png')" }} role="img" aria-label="Digital Strategy & Growth" />, title: t('services.card4.title'), subtitle: t('services.card4.subtitle'), desc: t('services.card4.desc'), delay: 0.3 },
             ].map((s) => (
               <ServiceCard key={s.title} {...s} />
             ))}

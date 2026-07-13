@@ -59,7 +59,12 @@ export default function Services() {
             <Link to="/contact" className="btn-primary w-full sm:w-auto justify-center">{t('hero.cta')} →</Link>
           </Reveal>
           <div className="h-48 sm:h-64 bg-gradient-to-br from-black to-brand-darkGray flex items-center justify-center p-8">
-            <img src="/icon-webdev.png" className="h-36 object-contain opacity-30 filter drop-shadow-[0_0_15px_rgba(232,80,2,0.2)]" alt="Web Development" />
+            <span
+              className="services-icon-mask"
+              style={{ '--icon-url': "url('/icon-webdev.png')" }}
+              role="img"
+              aria-label="Web Development"
+            />
           </div>
         </div>
       </section>
@@ -68,7 +73,12 @@ export default function Services() {
       <section className="section-dark py-16 md:py-20 border-t border-brand-darkGray">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="h-48 sm:h-64 bg-gradient-to-br from-brand-darkGray to-black flex items-center justify-center p-8">
-            <img src="/icon-uiux.png" className="h-36 object-contain opacity-30 filter drop-shadow-[0_0_15px_rgba(232,80,2,0.2)]" alt="UI/UX Design" />
+            <span
+              className="services-icon-mask"
+              style={{ '--icon-url': "url('/icon-uiux.png')" }}
+              role="img"
+              aria-label="UI/UX Design"
+            />
           </div>
           <Reveal>
             <span className="eyebrow mb-3 block">02 / UI/UX Design</span>
@@ -103,7 +113,12 @@ export default function Services() {
             <Link to="/contact" className="btn-primary w-full sm:w-auto justify-center">{t('hero.cta')} →</Link>
           </Reveal>
           <div className="h-48 sm:h-64 bg-gradient-to-br from-black to-brand-darkGray flex items-center justify-center p-8">
-            <img src="/icon-branding.png" className="h-36 object-contain opacity-30 filter drop-shadow-[0_0_15px_rgba(232,80,2,0.2)]" alt="Branding & Identity" />
+            <span
+              className="services-icon-mask"
+              style={{ '--icon-url': "url('/icon-branding.png')" }}
+              role="img"
+              aria-label="Branding & Identity"
+            />
           </div>
         </div>
       </section>
@@ -112,7 +127,12 @@ export default function Services() {
       <section className="section-dark py-16 md:py-20 border-t border-brand-darkGray">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="h-48 sm:h-64 bg-gradient-to-br from-brand-darkGray to-black flex items-center justify-center p-8">
-            <img src="/icon-digital-strategy.png" className="h-36 object-contain opacity-30 filter drop-shadow-[0_0_15px_rgba(232,80,2,0.2)]" alt="Digital Strategy & Growth" />
+            <span
+              className="services-icon-mask"
+              style={{ '--icon-url': "url('/icon-digital-strategy.png')" }}
+              role="img"
+              aria-label="Digital Strategy & Growth"
+            />
           </div>
           <Reveal>
             <span className="eyebrow mb-3 block">04 / Digital Strategy & Growth</span>
