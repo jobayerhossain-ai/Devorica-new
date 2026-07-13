@@ -99,7 +99,7 @@ export default function Home() {
         </div>
 
         {/* Partners strip */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-brand-darkGray py-4 translate-y-5">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-brand-darkGray py-4 translate-y-10">
           <p className="text-center text-brand-lightGray text-xs mb-3 uppercase tracking-widest">{t('hero.partnersLabel')}</p>
           <Marquee items={['bikkhipto.com', 'easysubbd.com', 'bayloz.com', 'Partner Brand', 'Client Co.', 'Trusted Brand']} />
         </div>
