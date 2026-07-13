@@ -1,4 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
 import { useRef, Suspense, useMemo } from 'react';
 import * as THREE from 'three';
 
@@ -111,23 +112,58 @@ function BarrierScene() {
   );
 }
 
-function AvatarScene({ color = '#E85002' }) {
+function AvatarScene() {
+  const logoTex = useTexture('/devorica-lodo.png');
   const groupRef = useRef();
+
   useFrame(({ clock }) => {
-    if (groupRef.current) groupRef.current.rotation.y = clock.getElapsedTime() * 0.3;
+    if (groupRef.current) {
+      // Gentle floating up and down
+      groupRef.current.position.y = Math.sin(clock.getElapsedTime() * 1.2) * 0.12;
+      // Gentle rotation back and forth (yaw)
+      groupRef.current.rotation.y = Math.sin(clock.getElapsedTime() * 0.6) * 0.25;
+      // Gentle tilt back and forth (pitch)
+      groupRef.current.rotation.x = Math.cos(clock.getElapsedTime() * 0.4) * 0.06;
+    }
   });
+
   return (
     <group ref={groupRef}>
-      <mesh position={[0, 0.5, 0]}>
-        <sphereGeometry args={[0.6, 16, 16]} />
-        <meshStandardMaterial color={color} roughness={0.3} metalness={0.5} />
+      {/* Glass backing panel */}
+      <mesh position={[0, 0, -0.05]}>
+        <planeGeometry args={[3.2, 1.2]} />
+        <meshPhysicalMaterial
+          color="#0d0d0d"
+          roughness={0.15}
+          metalness={0.1}
+          transmission={0.6}
+          thickness={0.5}
+          transparent
+          opacity={0.8}
+        />
       </mesh>
-      <mesh position={[0, -0.5, 0]}>
-        <cylinderGeometry args={[0.8, 1.2, 1.2, 8]} />
-        <meshStandardMaterial color={color} roughness={0.3} metalness={0.5} />
+      
+      {/* Subtle thin outline border for the glass card */}
+      <mesh position={[0, 0, -0.04]}>
+        <planeGeometry args={[3.2, 1.2]} />
+        <meshBasicMaterial
+          color="#ff4f00"
+          wireframe
+          transparent
+          opacity={0.2}
+        />
       </mesh>
+
+      {/* Floating logo on top */}
+      <mesh position={[0, 0, 0.02]}>
+        <planeGeometry args={[2.7, 0.83]} />
+        <meshBasicMaterial map={logoTex} transparent depthWrite={false} />
+      </mesh>
+
+      {/* Lighting for the glass effect */}
       <ambientLight intensity={0.6} />
-      <pointLight position={[2, 2, 2]} intensity={1.5} color="#fff" />
+      <pointLight position={[3, 3, 3]} intensity={2.5} color="#ff4f00" />
+      <pointLight position={[-3, -3, -3]} intensity={1.5} color="#ff3800" />
     </group>
   );
 }
