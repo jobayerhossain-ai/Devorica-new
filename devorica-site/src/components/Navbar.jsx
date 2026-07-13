@@ -39,14 +39,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3" aria-label="Devorica Home">
-          {/* {/* PLACEHOLDER: replace with real logo file /assets/logo-white.svg */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-brand-orange flex items-center justify-center">
-              <span className="font-heading text-white text-sm font-bold">D</span>
-            </div>
-            <span className="font-heading text-white text-xl tracking-tight">DEVORICA</span>
-          </div>
+        <Link to="/" className="flex items-center" aria-label="Devorica Home">
+          <img src="/devorica-lodo.png" className="h-8 w-auto object-contain" alt="Devorica" />
         </Link>
 
         {/* Desktop nav */}

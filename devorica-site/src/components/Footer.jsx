@@ -25,13 +25,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand col */}
         <div className="lg:col-span-1">
-          {/* {/* PLACEHOLDER: replace with real logo-white.svg */}
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-8 bg-brand-orange flex items-center justify-center">
-              <span className="font-heading text-white text-sm font-bold">D</span>
-            </div>
-            <span className="font-heading text-white text-xl tracking-tight">DEVORICA</span>
-          </div>
+          <Link to="/" className="inline-block mb-6" aria-label="Devorica Home">
+            <img src="/devorica-lodo.png" className="h-8 w-auto object-contain" alt="Devorica" />
+          </Link>
           <p className="text-brand-lightGray text-sm leading-relaxed mb-6">
             Agency-grade design, without agency-grade price tags. Since 2022.
           </p>
