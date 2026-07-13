@@ -105,7 +105,7 @@ export function CaseStudyCard({ name, desc, href, delay = 0 }) {
     );
   } else if (href.includes('bayloz.com')) {
     logoNode = (
-      <img src="/bayloz-logo.png" className="max-h-12 max-w-[85%] object-contain" alt="Bayloz Logo" />
+      <img src="/bayloz-logo.jpg" className="max-h-12 max-w-[85%] object-contain" alt="Bayloz Logo" />
     );
   } else {
     logoNode = (
