@@ -81,17 +81,48 @@ export function TestimonialCard({ name, source, quote, highlight = false, delay 
 
 /* ── Case Study Card ── */
 export function CaseStudyCard({ name, desc, href, delay = 0 }) {
+  let logoNode = null;
+
+  if (href.includes('bikkhipto.com')) {
+    logoNode = (
+      <img src="/bikkhipto-logo-white.webp" className="max-h-12 max-w-[85%] object-contain" alt="Bikkhipto Logo" />
+    );
+  } else if (href.includes('easysubbd.com')) {
+    logoNode = (
+      <div className="flex items-center gap-3">
+        <svg viewBox="0 0 512 512" className="w-10 h-10 rounded-xl shadow-lg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="logoBg" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="#001489" />
+              <stop offset="100%" stop-color="#000214" />
+            </radialGradient>
+          </defs>
+          <rect width="512" height="512" fill="url(#logoBg)" />
+          <path d="M390 96 L256 96 A 160 160 0 0 0 256 416 L390 416 L390 316 L196 316 L196 286 L330 286 L330 226 L196 226 L196 196 L390 196 Z" fill="#ffffff" />
+        </svg>
+        <span className="font-heading text-white text-2xl font-bold tracking-tight">EasySub</span>
+      </div>
+    );
+  } else if (href.includes('bayloz.com')) {
+    logoNode = (
+      <img src="/bayloz-logo.png" className="max-h-12 max-w-[85%] object-contain" alt="Bayloz Logo" />
+    );
+  } else {
+    logoNode = (
+      <span className="font-heading text-brand-orange text-xl">{name.split('.')[0].toUpperCase()}</span>
+    );
+  }
+
   return (
     <Reveal delay={delay}>
       <div className="card-light p-7 h-full flex flex-col">
         <span className="eyebrow mb-4 block">CASE STUDY</span>
         <div className="h-32 bg-gradient-to-br from-black to-brand-darkGray mb-5 flex items-center justify-center">
-          <span className="font-heading text-brand-orange text-xl">{name.split('.')[0].toUpperCase()}</span>
+          {logoNode}
         </div>
         <h3 className="font-heading text-black text-xl mb-2">{name}</h3>
         <p className="text-brand-gray text-sm leading-relaxed flex-1 mb-5">
           {desc}
-          {/* {/* PLACEHOLDER: confirm exact project description */}
         </p>
         <a href={`https://${href}`} target="_blank" rel="noreferrer"
           className="py-2.5 text-brand-orange text-sm font-medium hover:underline inline-flex items-center gap-1">
