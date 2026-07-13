@@ -109,9 +109,21 @@ export default function Home() {
       <section className="section-dark py-16 md:py-24 border-t border-brand-darkGray">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: 3D avatar */}
-          <Suspense fallback={<div className="h-[260px] sm:h-96 lg:h-[480px] bg-brand-gradient opacity-20" />}>
-            <AbstractGraphic variant="avatar" className="h-[260px] sm:h-96 lg:h-[480px]" avatarColor="#E85002" />
-          </Suspense>
+          <div className="relative flex items-center justify-center h-[260px] sm:h-96 lg:h-[480px]">
+            {/* Highlight background glow */}
+            <div className="absolute w-[70%] h-[70%] rounded-full bg-brand-orange/15 blur-[50px] pointer-events-none" />
+            
+            <Suspense fallback={<div className="w-full h-full bg-brand-gradient opacity-20" />}>
+              <AbstractGraphic variant="avatar" className="w-full h-full" avatarColor="#ff5f00" />
+            </Suspense>
+
+            {/* White Logo Icon Overlay */}
+            <div className="absolute pointer-events-none flex items-center justify-center opacity-90 drop-shadow-[0_0_20px_rgba(255,95,0,0.7)] transition-transform duration-500 hover:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="92" viewBox="0 0 48 46" className="w-16 h-16 sm:w-24 sm:h-24 text-white fill-current">
+                <path d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/>
+              </svg>
+            </div>
+          </div>
           {/* Right: copy */}
           <div>
             <Reveal>
